@@ -23,6 +23,7 @@ def SetHoverText(recipeControl, renderPath, itemName, aux=0, userData=None):
     
     # 获取物品的格式化悬停文本
     itemComp = ClientComp.CreateItem(levelId)
+    print(itemName, aux)
     if userData is not None:
         hoverText = itemComp.GetItemFormattedHoverText(itemName, aux, False, userData)
     else:

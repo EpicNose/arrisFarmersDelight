@@ -20,7 +20,7 @@
             -1.0
         ],
         "size": [
-            "100%+0px",
+            "100%c+30px",
             "100%c+5px"
         ],
         "layer": 1,
@@ -326,7 +326,7 @@
     "jeiCuttingBoardRecipe": {
         "type": "panel",
         "size": [
-            "100%+0px",
+            "100%c+30px",
             "100%c+5px"
         ],
         "layer": 1,
@@ -790,7 +790,7 @@
                         0,
                         0
                     ],
-                    "$pressed_button_name": "#xxxxx",
+                    "$pressed_button_name": "#jeiRecipeSlotItem",
                     "$texture_layer": 2,
                     "size": [
                         "100%+0px",
@@ -873,7 +873,7 @@
     "jeiSkilletAndStoveRecipe": {
         "type": "panel",
         "size": [
-            "100%+0px",
+            "100%c+30px",
             "100%c+5px"
         ],
         "layer": 1,

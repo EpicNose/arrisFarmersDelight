@@ -46,8 +46,8 @@ class SkilletRecipe:
         outputItem = self.recipeData["output"]
         inputItem = self.recipeData["input"]
         inputRender = self.recipeControl.GetChildByPath("/bg/jeiInputItemRender/item_cell/item/item_renderer")
-        SetHoverText(self.recipeControl, "/bg/jeiInputItemRender", inputItem[0], inputItem[1])
+        SetHoverText(self.recipeControl, "/bg/jeiInputItemRender", inputItem)
         inputRender.asItemRenderer().SetUiItem(inputItem, 0)
         outputRender = self.recipeControl.GetChildByPath("/bg/jeiOutputItemRender/item_cell/item/item_renderer")
         outputRender.asItemRenderer().SetUiItem(outputItem, 0)
-        SetHoverText(self.recipeControl, "/bg/jeiOutputItemRender", outputItem[0], outputItem[1])
+        SetHoverText(self.recipeControl, "/bg/jeiOutputItemRender", outputItem)

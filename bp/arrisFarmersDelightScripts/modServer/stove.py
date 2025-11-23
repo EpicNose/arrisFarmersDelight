@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from serverUtils.serverUtils import *
+from .serverUtils.serverUtils import *
 
 @ListenServer("ServerPlaceBlockEntityEvent")
 def OnServerStoveCreate(args):
