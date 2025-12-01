@@ -32,8 +32,8 @@ def RegisterCookingPotRecipes():
                     if inputItem[0] != itemData[0] or inputItem[1] != itemData[1] or recipe in recipesByInputList:
                         continue
                     recipesByInputList.append(recipe)
-            vessel = recipe["Vessel"]
-            if vessel[0] == itemData[0] and vessel[1] == itemData[1] and recipe not in recipesByInputList:
+            vessel = recipe.get("Vessel")
+            if vessel and vessel[0] == itemData[0] and vessel[1] == itemData[1] and recipe not in recipesByInputList:
                 recipesByInputList.append(recipe)
         if recipesByInputList:
             registry.setRecipeByInput(recipeTag, itemData, recipesByInputList)
@@ -62,10 +62,13 @@ class CookingPotRecipe:
         for index in range(inputNum, 6):
             inputRender = self.recipeControl.GetChildByPath("/bg/stack_panel/input_panel/jeiInputItemRender" + str(index + 1) + "/item_cell/item/item_renderer")
             inputRender.SetVisible(False)
-        vessel = self.recipeData["Vessel"]
+        vessel = self.recipeData.get("Vessel")
         inputRender = self.recipeControl.GetChildByPath("/bg/stack_panel/output_panel/jeiVesselItemRender/item_cell/item/item_renderer")
-        SetHoverText(self.recipeControl, "/bg/stack_panel/output_panel/jeiVesselItemRender", vessel[0], vessel[1])
-        inputRender.asItemRenderer().SetUiItem(vessel[0], vessel[1])
+        if vessel:
+            SetHoverText(self.recipeControl, "/bg/stack_panel/output_panel/jeiVesselItemRender", vessel[0], vessel[1])
+            inputRender.asItemRenderer().SetUiItem(vessel[0], vessel[1])
+        else:
+            inputRender.SetVisible(False)
         cookResult = self.recipeData["CookResult"]
         inputRender = self.recipeControl.GetChildByPath("/bg/stack_panel/output_panel/jeiOutputItemRender/item_cell/item/item_renderer")
         SetHoverText(self.recipeControl, "/bg/stack_panel/output_panel/jeiOutputItemRender", cookResult[0], cookResult[1])
